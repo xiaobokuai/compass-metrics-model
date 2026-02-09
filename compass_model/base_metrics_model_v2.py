@@ -131,7 +131,7 @@ from compass_metrics_v2.issue_metrics_v2 import (issue_new_first_response_time_b
 issue_new_handle_time_by_period,issue_new_unresponsive_ratio_by_period,issue_comment_activity_by_period,issue_new_count_by_period)
 
 from compass_metrics_v2.pr_metrics_v2 import (pr_new_unresponsive_ratio_by_period,pr_new_first_response_time_by_period,pr_new_handle_time_by_period,
-pr_issue_linked_ratio_by_period,pr_review_participation_ratio_by_period,pr_avg_interactions_by_period,pr_non_author_merge_ratio_by_period,pr_review_time_by_size_by_period,pr_comment_count_by_period
+pr_issue_linked_ratio_by_period,pr_review_participation_ratio_by_period,pr_avg_interactions_by_period,pr_non_author_merge_ratio_by_period,pr_review_time_by_size_by_period,pr_comment_count_by_period,pr_merge_ratio_by_period
 )
 
 from compass_metrics_v2.contributor_metrics_v2 import (
@@ -806,6 +806,7 @@ class BaseMetricsModel:
             "pr_new_first_response_time_by_period": lambda: pr_new_first_response_time_by_period(self.client, self.pr_index, date, repo_list,period),
 
 
+            "pr_merge_ratio_by_period": lambda: pr_merge_ratio_by_period(self.client, self.pr_index, date, repo_list,period),
             "pr_issue_linked_ratio_by_period": lambda: pr_issue_linked_ratio_by_period(self.client, self.pr_index, self.pr_comments_index,date, repo_list,period),
             "pr_review_participation_ratio_by_period": lambda: pr_review_participation_ratio_by_period(self.client, self.pr_index, date, repo_list,period),
             "pr_review_time_by_size_by_period": lambda: pr_review_participation_ratio_by_period(self.client, self.pr_index, date, repo_list,period),
